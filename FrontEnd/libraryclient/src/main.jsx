@@ -10,10 +10,11 @@ import { LibrosList } from "./components/Libro/LibrosList";
 import { LibroForm } from "./components/Libro/LibroForm";
 import { PrestamoList } from "./components/Prestamo/PrestamoList";
 import { PrestamoForm } from "./components/Prestamo/PrestamoForm";
+import { Welcome } from "./components/Welcome";
 
 const router = createBrowserRouter([
   
-   ...["/", "/login", "/Login"].map(route => ({
+   ...["/","/login", "/Login"].map(route => ({
         path: route,
         element: <Login />
     })) 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />,
     children: [
+      {
+        path: "/dashboard/",
+        element: <Welcome />
+      },
       {
         path: "/dashboard/libros",
         element: <LibrosList />,
